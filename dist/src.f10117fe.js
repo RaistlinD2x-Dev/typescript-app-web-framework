@@ -173,6 +173,8 @@ user.set({
 // console.log(user.get('age'));
 
 user.on('change', function () {});
+user.on('change', function () {});
+user.on('thischange', function () {});
 console.log(user);
 },{"./models/User":"src/models/User.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
