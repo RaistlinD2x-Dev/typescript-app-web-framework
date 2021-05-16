@@ -190,10 +190,12 @@ user.on('change', function () {
 user.on('change', function () {
   console.log('Change #2');
 });
-user.on('thischange', function () {
+user.on('save', function () {
   console.log('Save was triggered');
 });
 user.trigger('change');
+user.trigger('save');
+user.trigger('thisisnotanevent');
 console.log(user);
 },{"./models/User":"src/models/User.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
