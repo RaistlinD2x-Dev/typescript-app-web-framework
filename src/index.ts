@@ -1,17 +1,15 @@
 import axios from 'axios';
-
-axios.post('http://localhost:3000/users', {
-    name: 'Jesse', 
-    age: 36
-})
-
-
-
-
-
-
-
 // import { User } from './models/User'
+
+
+axios.get('http://localhost:3000/users/1')
+
+// axios.post('http://localhost:3000/users', {
+//     name: 'Jesse', 
+//     age: 36
+// })
+
+
 
 // const user = new User({name:'Jesse', age:20});
 

@@ -1930,12 +1930,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var axios_1 = __importDefault(require("axios"));
+var axios_1 = __importDefault(require("axios")); // import { User } from './models/User'
 
-axios_1.default.post('http://localhost:3000/users', {
-  name: 'Jesse',
-  age: 36
-}); // import { User } from './models/User'
+
+axios_1.default.get('http://localhost:3000/users/1'); // axios.post('http://localhost:3000/users', {
+//     name: 'Jesse', 
+//     age: 36
+// })
 // const user = new User({name:'Jesse', age:20});
 // user.set({name: 'Jamie', age:30});
 // // user.set({name: 'Odin'});
