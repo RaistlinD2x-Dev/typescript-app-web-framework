@@ -147,6 +147,18 @@ function () {
     this.events[eventName] = handlers;
   };
 
+  User.prototype.trigger = function (eventName) {
+    var handlers = this.events[eventName];
+
+    if (!handlers || handlers.length === 0) {
+      return;
+    }
+
+    handlers.forEach(function (callback) {
+      callback();
+    });
+  };
+
   return User;
 }();
 
@@ -172,9 +184,16 @@ user.set({
 // console.log(user.get('name'));
 // console.log(user.get('age'));
 
-user.on('change', function () {});
-user.on('change', function () {});
-user.on('thischange', function () {});
+user.on('change', function () {
+  console.log('Change #1');
+});
+user.on('change', function () {
+  console.log('Change #2');
+});
+user.on('thischange', function () {
+  console.log('Save was triggered');
+});
+user.trigger('change');
 console.log(user);
 },{"./models/User":"src/models/User.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
