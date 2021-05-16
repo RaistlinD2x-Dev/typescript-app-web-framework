@@ -1991,7 +1991,10 @@ var User_1 = require("./models/User");
 var user = new User_1.User({
   id: 1
 });
-user.fetch(); // axios.get('http://localhost:3000/users/1')
+user.fetch();
+setTimeout(function () {
+  console.log(user);
+}, 4000); // axios.get('http://localhost:3000/users/1')
 // axios.post('http://localhost:3000/users', {
 //     name: 'Jesse', 
 //     age: 36
