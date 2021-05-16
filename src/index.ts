@@ -1,9 +1,11 @@
 // import axios from 'axios';
 import { User } from './models/User'
 
-const user = new User({id: 1});
+const user = new User({name: 'newRecord', age: 89798719283});
 
-user.set({ name: 'newName', age:123 })
+
+
+// user.set({ name: 'newName', age:123 })
 
 user.save();
 

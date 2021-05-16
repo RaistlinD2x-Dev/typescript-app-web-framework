@@ -1999,12 +1999,10 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./models/User");
 
 var user = new User_1.User({
-  id: 1
-});
-user.set({
-  name: 'newName',
-  age: 123
-});
+  name: 'newRecord',
+  age: 89798719283
+}); // user.set({ name: 'newName', age:123 })
+
 user.save(); // user.fetch();
 // setTimeout(() => {
 //     console.log(user);
