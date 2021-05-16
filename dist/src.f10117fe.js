@@ -1975,6 +1975,16 @@ function () {
     });
   };
 
+  User.prototype.save = function () {
+    var id = this.get('id');
+
+    if (id) {
+      axios_1.default.put("http://localhost:3000/users/" + id, this.data);
+    } else {
+      axios_1.default.post('http://localhost:3000/users', this.data);
+    }
+  };
+
   return User;
 }();
 
@@ -1991,10 +2001,15 @@ var User_1 = require("./models/User");
 var user = new User_1.User({
   id: 1
 });
-user.fetch();
-setTimeout(function () {
-  console.log(user);
-}, 4000); // axios.get('http://localhost:3000/users/1')
+user.set({
+  name: 'newName',
+  age: 123
+});
+user.save(); // user.fetch();
+// setTimeout(() => {
+//     console.log(user);
+// }, 4000);
+// axios.get('http://localhost:3000/users/1')
 // axios.post('http://localhost:3000/users', {
 //     name: 'Jesse', 
 //     age: 36
