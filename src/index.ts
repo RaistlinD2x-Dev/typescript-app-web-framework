@@ -1,13 +1,23 @@
 // import axios from 'axios';
 import { User } from './models/User'
 
+
+
 const user = new User({name: 'newRecord', age: 89798719283});
 
+user.events.on('save', () => {
+    console.log('Save was triggered');
+})
 
+user.events.trigger('save');
+
+
+
+// user.save();
 
 // user.set({ name: 'newName', age:123 })
 
-user.save();
+
 
 // user.fetch();
 
@@ -41,11 +51,9 @@ user.save();
 //     console.log('Change #2')
 // })
 
-// user.on('save', () => {
-//     console.log('Save was triggered');
-// })
 
-// user.trigger('change');
+
+
 // user.trigger('save');
 // user.trigger('thisisnotanevent')
 // console.log(user);
