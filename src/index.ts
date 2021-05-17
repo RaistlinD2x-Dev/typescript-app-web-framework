@@ -2,15 +2,15 @@
 import { User } from './models/User';
 
 
-const user = new User({name: 'whatsmyname', age: 89798719283});
+const user = new User({ id: 1 });
 
 
 user.on('change', () => {
-    console.log('User changed');
+    console.log(user);
 })
 
 
-user.set({name: 'New Name'})
+user.fetch()
 
 
 // user.trigger('change')

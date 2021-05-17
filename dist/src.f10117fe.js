@@ -2087,6 +2087,20 @@ function () {
     this.events.trigger('change');
   };
 
+  User.prototype.fetch = function () {
+    var _this = this;
+
+    var id = this.get('id');
+
+    if (typeof id !== 'number') {
+      throw new Error('I needs a number');
+    }
+
+    this.sync.fetch(id).then(function (response) {
+      _this.set(response.data);
+    });
+  };
+
   return User;
 }();
 
@@ -2101,15 +2115,12 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./models/User");
 
 var user = new User_1.User({
-  name: 'whatsmyname',
-  age: 89798719283
+  id: 1
 });
 user.on('change', function () {
-  console.log('User changed');
+  console.log(user);
 });
-user.set({
-  name: 'New Name'
-}); // user.trigger('change')
+user.fetch(); // user.trigger('change')
 // user.on('change', () => {
 //     console.log('user was changed')
 // })
