@@ -2097,7 +2097,11 @@ var User_1 = require("./models/User");
 var user = new User_1.User({
   name: 'whatsmyname',
   age: 89798719283
-}); // user.on('change', () => {
+});
+user.on('change', function () {
+  console.log('User changed');
+});
+user.trigger('change'); // user.on('change', () => {
 //     console.log('user was changed')
 // })
 // class Person {
