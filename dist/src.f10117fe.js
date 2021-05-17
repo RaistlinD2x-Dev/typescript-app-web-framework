@@ -2081,6 +2081,12 @@ function () {
     enumerable: false,
     configurable: true
   });
+
+  User.prototype.set = function (update) {
+    this.attributes.set(update);
+    this.events.trigger('change');
+  };
+
   return User;
 }();
 
@@ -2101,7 +2107,10 @@ var user = new User_1.User({
 user.on('change', function () {
   console.log('User changed');
 });
-user.trigger('change'); // user.on('change', () => {
+user.set({
+  name: 'New Name'
+}); // user.trigger('change')
+// user.on('change', () => {
 //     console.log('user was changed')
 // })
 // class Person {
