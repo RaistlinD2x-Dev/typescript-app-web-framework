@@ -3,13 +3,13 @@ import { User } from './models/User'
 
 
 
-const user = new User({name: 'newRecord', age: 89798719283});
+// const user = new User({name: 'newRecord', age: 89798719283});
 
-user.events.on('save', () => {
-    console.log('Save was triggered');
-})
+// user.events.on('save', () => {
+//     console.log('Save was triggered');
+// })
 
-user.events.trigger('save');
+// user.events.trigger('save');
 
 
 
