@@ -2024,6 +2024,10 @@ function () {
     Object.assign(this.data, update);
   };
 
+  Attributes.prototype.getAll = function () {
+    return this.data;
+  };
+
   return Attributes;
 }();
 
@@ -2101,6 +2105,16 @@ function () {
     });
   };
 
+  User.prototype.save = function () {
+    var _this = this;
+
+    this.sync.save(this.attributes.getAll()).then(function (response) {
+      _this.trigger('save');
+    }).catch(function () {
+      _this.trigger('error');
+    });
+  };
+
   return User;
 }();
 
@@ -2115,12 +2129,14 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./models/User");
 
 var user = new User_1.User({
-  id: 1
+  id: 1,
+  name: 'NEWEST NAME',
+  age: 32908
 });
-user.on('change', function () {
+user.on('save', function () {
   console.log(user);
 });
-user.fetch(); // user.trigger('change')
+user.save(); // user.trigger('change')
 // user.on('change', () => {
 //     console.log('user was changed')
 // })
